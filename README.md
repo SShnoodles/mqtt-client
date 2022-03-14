@@ -14,3 +14,7 @@ if you deploy mosquitto server, then deploy this.
 ## Use
 
 pub "test/request" => sub "test/response"
+
+## Build
+
+GOOS=linux GOARCH=amd64 go build -o mqtt-client

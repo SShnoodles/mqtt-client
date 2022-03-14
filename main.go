@@ -13,7 +13,8 @@ import (
 var config Config
 
 var messagePubHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {
-	fmt.Printf("Received message: %s from topic: %s\n", msg.Payload(), msg.Topic())
+	now := time.Now().Format("2006-01-02 15:04:05.999")
+	fmt.Printf("%s Received message: %s from topic: %s\n", now, msg.Payload(), msg.Topic())
 	client.Publish(config.Topic.Pub, 0, false, msg.Payload())
 }
 
